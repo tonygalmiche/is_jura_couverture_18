@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_is_provenance_client,access_is_provenance_client,model_is_provenance_client,base.group_user,1,0,0,0
+access_is_provenance_client_gest,access_is_provenance_client_gest,model_is_provenance_client,group_configuration_jc,1,1,1,1
+
+access_is_forme_juridique,access_is_forme_juridique,model_is_forme_juridique,base.group_user,1,0,0,0
+access_is_forme_juridique_gest,access_is_forme_juridique_gest,model_is_forme_juridique,group_configuration_jc,1,1,1,1
+
+
+access_is_famille,access_is_famille,model_is_famille,base.group_user,1,0,0,0
+access_is_famille_gest,access_is_famille_gest,model_is_famille,group_configuration_jc,1,1,1,1

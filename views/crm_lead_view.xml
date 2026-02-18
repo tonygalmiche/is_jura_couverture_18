@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="is_crm_lead_view_form" model="ir.ui.view">
+        <field name="name">is_crm_lead_view_form</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='lead_priority']" position="after">
+                <group>
+                    <field name="is_provenance_client_id"/>
+                    <field name="is_adresse" required="1"/>
+                    <field name="is_localisation"/>
+                    <field name="is_date_changement_etat"/>
+                </group>
+            </xpath>
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="Pièces jointes" name="is_pieces_jointes">
+                    <group>
+                        <!-- <field name="is_devis_signe_ids" widget="many2many_binary"/> -->
+                        <field name="is_memoire_technique_ids" widget="many2many_binary"/>
+                        <field name="is_etude_ids" widget="many2many_binary"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record> 
+    <record id="is_crm_case_tree_view_oppor" model="ir.ui.view">
+        <field name="name">is_crm_case_tree_view_oppor</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+           <field name="contact_name" position="after">
+                <field name="is_provenance_client_id" optional="show"/>
+                <field name="is_adresse"              optional="show"/>
+                <field name="is_localisation"         optional="show" />
+                <field name="is_date_changement_etat" optional="show" />
+                <field name="create_date" optional="hide" />
+                <field name="create_uid"  optional="hide" />
+                <field name="write_date"  optional="hide" />
+                <field name="write_uid"   optional="hide" />
+            </field>
+        </field>
+    </record> 
+
+    <record id="is_crm_lead_view_search" model="ir.ui.view">
+        <field name="name">is.crm.lead.view.search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_lost']" position="after">
+                <separator/>
+                <filter string="Créé depuis 30 jours" name="created_last_30_days" domain="[('create_date', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+                <filter string="Changement d'état depuis 30 jours" name="state_change_last_30_days" domain="[('is_date_changement_etat', '&gt;=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Vues pour is.provenance.client -->
+    <record id="view_is_provenance_client_list" model="ir.ui.view">
+        <field name="name">is.provenance.client.list</field>
+        <field name="model">is.provenance.client</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_is_provenance_client_form" model="ir.ui.view">
+        <field name="name">is.provenance.client.form</field>
+        <field name="model">is.provenance.client</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="is_provenance_client_action" model="ir.actions.act_window">
+        <field name="name">Provenance client</field>
+        <field name="res_model">is.provenance.client</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

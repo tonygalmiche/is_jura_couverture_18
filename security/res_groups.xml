@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Catégorie parent JC -->
+    <record id="module_category_jc" model="ir.module.category">
+        <field name="name">Jura Couverture</field>
+        <field name="sequence">5</field>
+    </record>
+
+    <!-- Sous-catégorie Configuration -->
+    <record id="module_category_jc_configuration" model="ir.module.category">
+        <field name="name">Configuration</field>
+        <field name="sequence">20</field>
+        <field name="parent_id" ref="module_category_jc"/>
+    </record>
+    <record id="group_configuration_jc" model="res.groups">
+        <field name="name">Configuration Jura Couverture</field>
+        <field name="category_id" ref="module_category_jc_configuration"/>
+    </record>
+
+
+</odoo>
