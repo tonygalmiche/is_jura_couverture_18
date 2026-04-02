@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Surcharge du pied de page -->
+    <template id="external_layout_bold_footer" inherit_id="web.external_layout_bold">
+        <xpath expr="//div[hasclass('o_footer_content')]" position="replace">
+            <div class="o_footer_content border-top pt-2 d-flex align-items-start">
+                <div style="width: 90%; text-align: center;">
+                    <span t-field="company.report_footer"/>
+                </div>
+                <div style="width: 10%; text-align: right;" class="text-muted text-nowrap">
+                    <t t-if="report_type == 'pdf'">
+                        <div>Page</div>
+                        <div><span class="page"/> / <span class="topage"/></div>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

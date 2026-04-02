@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Ajout du champ Objet sous le titre sur le rapport facture client -->
+    <template id="report_invoice_is_objet" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[hasclass('oe_structure')][1]" position="after">
+            <div t-if="o.is_objet" class="mb-2">
+                <strong>Objet : </strong><span t-field="o.is_objet"/>
+            </div>
+        </xpath>
+        <xpath expr="//p[@name='payment_communication']" position="after">
+            <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.preferred_payment_method_line_id">
+                Mode de paiement : <span class="fw-bold" t-field="o.preferred_payment_method_line_id"/>
+            </p>
+        </xpath>
+    </template>
+</odoo>

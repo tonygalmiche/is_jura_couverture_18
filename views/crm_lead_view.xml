@@ -34,6 +34,9 @@
                 <field name="is_adresse"              optional="show"/>
                 <field name="is_localisation"         optional="show" />
                 <field name="is_date_changement_etat" optional="show" />
+            </field>
+            <field name="stage_id" position="after">
+                <field name="active"      optional="hide" />
                 <field name="create_date" optional="hide" />
                 <field name="create_uid"  optional="hide" />
                 <field name="write_date"  optional="hide" />

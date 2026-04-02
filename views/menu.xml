@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
     <menuitem 
         id="is_provenance_client_menu" name="Provenance client" parent="crm.crm_menu_config" 
         action="is_provenance_client_action" sequence="50" groups="is_jura_couverture_18.group_configuration_jc"/>

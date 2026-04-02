@@ -1,0 +1,10 @@
+# Translation override for is_jura_couverture_18
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: l10n_fr_account
+#: model_terms:ir.ui.view,arch_db:l10n_fr_account.report_invoice_document
+msgid "Option to pay tax on debits"
+msgstr "Option pour le paiement de la TVA d'après les débits"
