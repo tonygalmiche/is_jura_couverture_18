@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <!-- Suppression du SIRET ajouté par l10n_fr_account -->
+    <template id="report_invoice_hide_siret" inherit_id="l10n_fr_account.report_invoice_document">
+        <xpath expr="(//address)[1]/following-sibling::div[1]" position="replace"/>
+        <xpath expr="(//address)[2]/following-sibling::div[1]" position="replace"/>
+        <xpath expr="(//address)[3]/following-sibling::div[1]" position="replace"/>
+    </template>
+
+    <!-- Ajout du SIREN sous l'adresse client sur le rapport facture -->
+    <template id="report_invoice_is_siren" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@id='partner_vat_address_not_same_as_shipping']" position="after">
+            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+        </xpath>
+        <xpath expr="//div[@id='partner_vat_address_same_as_shipping']" position="after">
+            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+        </xpath>
+        <xpath expr="//div[@id='partner_vat_no_shipping']" position="after">
+            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+        </xpath>
+    </template>
+
     <!-- Ajout du champ Objet sous le titre sur le rapport facture client -->
     <template id="report_invoice_is_objet" inherit_id="account.report_invoice_document">
         <xpath expr="//div[hasclass('oe_structure')][1]" position="after">
@@ -11,6 +31,12 @@
             <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.preferred_payment_method_line_id">
                 Mode de paiement : <span class="fw-bold" t-field="o.preferred_payment_method_line_id"/>
             </p>
+        </xpath>
+        <xpath expr="//div[@id='payment_term']" position="after">
+            <div t-if="o.move_type in ('out_invoice', 'out_refund')" class="text-muted mt-2" style="font-size:0.85em;">
+                <p class="mb-1">Conditions d'escompte pour paiement anticipé : néant.</p>
+                <p class="mb-0">En cas de retard de paiement, et conformément au code de commerce, une indemnité calculée à trois fois le taux d'intérêt légal ainsi qu'un frais de recouvrement de 40€ sont exigibles.</p>
+            </div>
         </xpath>
     </template>
 </odoo>
