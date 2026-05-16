@@ -16,6 +16,7 @@ Module Odoo 18 pour Jura Couverture
         "product",
         "project",
         "crm",
+        "sale",
         "l10n_fr_account",
         "web_chatter_position",
     ],
@@ -28,6 +29,8 @@ Module Odoo 18 pour Jura Couverture
         "views/product_view.xml",
         "views/crm_lead_view.xml",
         "views/account_move_view.xml",
+        "report/report_sale_order.xml",
+        "views/sale_order_view.xml",
         "views/menu.xml"
     ],
     'assets': {

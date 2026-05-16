@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ajout du champ "Objet du devis" dans le formulaire de devis/commande de vente -->
+    <record id="view_sale_order_form_inherit_is_jura_couverture" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.is_jura_couverture</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Ajout dans le groupe "partner_details" après le champ client -->
+            <xpath expr="//group[@name='partner_details']/field[@name='partner_id']" position="after">
+                <field name="is_objet" placeholder="Objet du devis..."/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Ajout du champ dans la vue liste des devis (sale_order_tree) -->
+    <record id="view_sale_order_tree_inherit_is_jura_couverture" model="ir.ui.view">
+        <field name="name">sale.order.list.inherit.is_jura_couverture</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="is_objet" optional="show"/>
+            </field>
+        </field>
+    </record>
+
+
+    <!-- Ajout du champ "Objet du devis" dans la vue recherche -->
+    <record id="view_sale_order_search_inherit_is_jura_couverture" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.is_jura_couverture</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="is_objet" string="Objet du devis"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

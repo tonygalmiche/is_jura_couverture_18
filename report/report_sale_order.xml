@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Ajout du champ "Objet du devis" dans le rapport PDF des devis/commandes de vente -->
+    <template id="report_saleorder_document_inherit_is_jura_couverture"
+              inherit_id="sale.report_saleorder_document">
+        <!-- Insertion de l'objet du devis avant le bloc d'informations (date, vendeur...) -->
+        <xpath expr="//div[@id='informations']" position="before">
+            <t t-if="doc.is_objet">
+                <div class="mb-3">
+                    <strong>Objet : </strong>
+                    <span t-field="doc.is_objet"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
