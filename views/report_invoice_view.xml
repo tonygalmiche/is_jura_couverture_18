@@ -18,6 +18,20 @@
         <xpath expr="//div[@id='partner_vat_no_shipping']" position="after">
             <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
         </xpath>
+
+        <xpath expr="//div[@id='payment_term']" position="replace">
+
+            <div id="payment_term" class="mt-4">
+                <div class="mb-3">
+                    <p name="payment_communication">
+                        Référence de facture à rappeler: <b><span t-field="o.name"/></b>
+                    </p>
+                </div>
+            </div>
+        </xpath>
+
+
+
     </template>
 
     <!-- Ajout du champ Objet sous le titre sur le rapport facture client -->
