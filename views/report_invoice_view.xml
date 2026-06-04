@@ -33,6 +33,9 @@
             </p>
         </xpath>
         <xpath expr="//div[@id='payment_term']" position="after">
+            <p t-if="o.move_type in ('out_invoice', 'out_refund') and 'on_payment' in o.invoice_line_ids.mapped('tax_ids.tax_exigibility')">
+                Option pour le paiement de la TVA sur les encaissements
+            </p>
             <div t-if="o.move_type in ('out_invoice', 'out_refund')" class="text-muted mt-2" style="font-size:0.85em;">
                 <p class="mb-1">Conditions d'escompte pour paiement anticipé : néant.</p>
                 <p class="mb-0">En cas de retard de paiement, et conformément au code de commerce, une indemnité calculée à trois fois le taux d'intérêt légal ainsi qu'un frais de recouvrement de 40€ sont exigibles.</p>
