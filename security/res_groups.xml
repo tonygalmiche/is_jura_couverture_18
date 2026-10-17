@@ -17,5 +17,11 @@
         <field name="category_id" ref="module_category_jc_configuration"/>
     </record>
 
+    <!-- Groupe volontairement vide : sert à masquer les menus standard non utilisés (Tableaux de bord...), y compris aux administrateurs -->
+    <record id="is_afficher_menus_non_utilises_group" model="res.groups">
+        <field name="name">Afficher les menus non utilisés</field>
+        <field name="category_id" ref="module_category_jc"/>
+    </record>
+
 
 </odoo>
