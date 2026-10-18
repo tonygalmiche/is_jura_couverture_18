@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name"     : "Module Odoo 18 pour Jura Couverture",
-    "version"  : "0.3",
+    "version"  : "0.4",
     "author"   : "InfoSaône",
     "category" : "InfoSaône",
     "description": """

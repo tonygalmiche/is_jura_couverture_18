@@ -10,13 +10,13 @@
     <!-- Ajout du SIREN sous l'adresse client sur le rapport facture -->
     <template id="report_invoice_is_siren" inherit_id="account.report_invoice_document">
         <xpath expr="//div[@id='partner_vat_address_not_same_as_shipping']" position="after">
-            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+            <div>SIREN : <span t-field="o.partner_id.siren"/></div>
         </xpath>
         <xpath expr="//div[@id='partner_vat_address_same_as_shipping']" position="after">
-            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+            <div>SIREN : <span t-field="o.partner_id.siren"/></div>
         </xpath>
         <xpath expr="//div[@id='partner_vat_no_shipping']" position="after">
-            <div>SIREN : <span t-field="o.partner_id.is_siren"/></div>
+            <div>SIREN : <span t-field="o.partner_id.siren"/></div>
         </xpath>
          <xpath expr="//p[@name='payment_communication']" position="replace">
             <p name="payment_communication">
