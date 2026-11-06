@@ -18,7 +18,6 @@ Module Odoo 18 pour Jura Couverture
         "crm",
         "sale",
         "l10n_fr_account",
-        "web_chatter_position",
         "spreadsheet_dashboard", # Menu "Tableaux de bord" masqué
         "utm", # Menu "Suivi des liens" masqué
     ],
